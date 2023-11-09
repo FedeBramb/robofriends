@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Card from './Card';
 import CardList from './CardList;'
 import reportWebVitals from './reportWebVitals';
 import 'tachyons';
@@ -13,7 +12,7 @@ ReactDOM.createRoot(
     document.getElementById('root')
 ).render(
     <React.StrictMode>
-        <CardList robots={robots} />
+        <CardList robots={robots}/>
     </React.StrictMode>
 );
 
