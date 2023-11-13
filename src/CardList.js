@@ -1,7 +1,9 @@
 import React from 'react';
 import Card from './Card';
 
-
+/*map function per ciclare su user e l'indice */
+/*key altrimenti il dom di react non riesce a tenere traccia delle img*/
+/*return sempre con () in quanto abbiamo più righe di codice*/
 const CardList = ({ robots }) => {
     return (
         <div>

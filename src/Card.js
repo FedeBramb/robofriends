@@ -1,6 +1,8 @@
 import React from "react";
 
-/* className= stili css con tachyons */
+/* className= stili css con tachyons 
+nella dichiarazioni delle variabili nella funzione Card
+destrutturizziamo le props.*/
 
 const Card = ({ name, email, id }) => {
     return (
@@ -15,3 +17,6 @@ const Card = ({ name, email, id }) => {
 }
 
 export default Card;
+
+/*se nella parte di "HTML" dobbiamo utilizzare del codice
+JavaScript, lo racchiudiamo in {}*/

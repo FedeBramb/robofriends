@@ -1,5 +1,5 @@
 import React from 'react';
-
+/*ogni volta che ci sono cambiamenti OnChange chiama la funzione indicata*/
 const SearchBox = ({ searchChange}) => {
     return (
         <div className='pa2'>
@@ -15,3 +15,4 @@ const SearchBox = ({ searchChange}) => {
 
 
 export default SearchBox;
+

@@ -2,18 +2,20 @@ import React, { Component } from 'react'; /*per utilizzare la classe App*/
 import CardList from './CardList';
 import SearchBox from './SearchBox';
 import { robots } from './robots';
+import './App.css';
 
-
+/*utilizziamo lo state, è un object*/
 class App extends Component {
-    constructor() { /*utilizziamo lo state*/
+    constructor() { 
         super()
         this.state = {
             robots: robots,
             searchfield: ''
         }
     }
-
-    onSearchChange = (event) => { /* */
+/*Ogni volta che creiamo un metodo con una classe bisogna utulizzare arrow function 
+se vogliamo cambiare state, this.setState({ searchfield: event.target.value })*/
+    onSearchChange = (event) => { 
         this.setState({ searchfield: event.target.value })    
     }
 
@@ -23,7 +25,7 @@ class App extends Component {
         })
         return (
             <div className='tc'>
-                <h1>RoboFriends</h1>
+                <h1 className='f1'>RoboFriends</h1>
                 <SearchBox searchChange={this.onSearchChange}/>
                 <CardList robots={filteredRobots}/>
             </div>
@@ -40,4 +42,10 @@ di classe. I componenti di classe in React sono una forma
 di classi ES6 che estendono la classe base React.Component.
 Questo ti consente di sfruttare le funzionalità offerte 
 da React, come lo state, i cicli di vita del componente, 
-e così via.*/
+e così via.
+Abbiamo App component che due stati che devono comunicare fra loro,
+robots e searchfield, passiamo a onSearch che ogni volta che avviene
+un cambiamento comunica al constructor cosa abbiamo digitato nel
+searchfield, che modifica gli states,
+ora abbiamo i dati che comunichiamo a CardList che filtriamo nei robots
+ciò che abbiamo nel searchfield */
