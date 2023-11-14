@@ -13,8 +13,13 @@ class App extends Component {
             searchfield: ''
         }
     }
-/*Ogni volta che creiamo un metodo con una classe bisogna utulizzare arrow function 
-se vogliamo cambiare state, this.setState({ searchfield: event.target.value })*/
+
+    componentDidMount() {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response=> response.json())
+            .then(users =>this.setState({ robots: users})
+    }
+
     onSearchChange = (event) => { 
         this.setState({ searchfield: event.target.value })    
     }
@@ -23,13 +28,18 @@ se vogliamo cambiare state, this.setState({ searchfield: event.target.value })*/
         const filteredRobots = this.state.robots.filter(robots =>{
             return robots.name.toLowerCase().includes(this.state.searchfield.toLowerCase())
         })
-        return (
-            <div className='tc'>
-                <h1 className='f1'>RoboFriends</h1>
-                <SearchBox searchChange={this.onSearchChange}/>
-                <CardList robots={filteredRobots}/>
-            </div>
-        );
+        if (this.state.robots.lenght === 0) {
+            return <h1>Loading...</h1>
+        } else {
+
+        
+            return (
+                <div className='tc'>
+                    <h1 className='f1'>RoboFriends</h1>
+                    <SearchBox searchChange={this.onSearchChange}/>
+                    <CardList robots={filteredRobots}/>
+                </div>
+            );
     }
 }
 
@@ -49,3 +59,5 @@ un cambiamento comunica al constructor cosa abbiamo digitato nel
 searchfield, che modifica gli states,
 ora abbiamo i dati che comunichiamo a CardList che filtriamo nei robots
 ciò che abbiamo nel searchfield */
+/*Ogni volta che creiamo un metodo con una classe bisogna utulizzare arrow function 
+se vogliamo cambiare state, this.setState({ searchfield: event.target.value })*/
