@@ -1,8 +1,7 @@
 import React, { Component } from 'react'; /*per utilizzare la classe App*/
-import CardList from './CardList';
-import SearchBox from './SearchBox';
-import { robots } from './robots';
-import Scroll from './Scroll';
+import CardList from '../components/CardList';
+import SearchBox from '../components/SearchBox';
+import Scroll from '../components/Scroll';
 import './App.css';
 
 /*utilizziamo lo state, è un object*/
@@ -10,7 +9,7 @@ class App extends Component {
     constructor() { 
         super()
         this.state = {
-            robots: robots,
+            robots: [],
             searchfield: ''
         }
     }
